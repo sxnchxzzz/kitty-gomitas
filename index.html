@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7f8">
+  <meta name="description" content="Kitty Gomitas: gomitas enchiladas con un toque dulce y picante. Consulta las opciones y haz tu pedido por WhatsApp.">
+  <title>Kitty Gomitas | Dulce con un toque picante</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --cream: #fffaf4;
+      --pink: #f7bdd0;
+      --pink-deep: #d94d7c;
+      --rose: #fff0f4;
+      --lilac: #eee7fa;
+      --mint: #dff2e7;
+      --ink: #4c3540;
+      --muted: #806a74;
+      --white: #fff;
+      --line: #f2dce4;
+      --shadow: 0 18px 48px rgba(124, 64, 89, .12);
+      --round: 28px;
+      font-family: ui-rounded, "Nunito", "Avenir Next", Avenir, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 4% 19%, rgba(247, 189, 208, .20) 0 7px, transparent 8px),
+        radial-gradient(circle at 97% 45%, rgba(223, 242, 231, .8) 0 9px, transparent 10px),
+        var(--cream);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .skip-link { position: absolute; left: -999px; top: 1rem; z-index: 20; padding: .7rem 1rem; background: var(--white); border-radius: 12px; }
+    .skip-link:focus { left: 1rem; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+
+    .top-note {
+      padding: .45rem 1rem;
+      background: var(--mint);
+      text-align: center;
+      color: #456a56;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .site-header { position: sticky; top: 0; z-index: 10; background: rgba(255, 250, 244, .92); border-bottom: 1px solid rgba(242, 220, 228, .8); backdrop-filter: blur(14px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; font-size: 1.14rem; font-weight: 950; letter-spacing: -.04em; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 15px; background: var(--rose); color: var(--pink-deep); }
+    .brand-mark svg { width: 27px; height: 27px; }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-links a { text-decoration: none; font-weight: 750; font-size: .92rem; }
+    .nav-links a:hover { color: var(--pink-deep); }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: .6rem; padding: .72rem 1.15rem; border: 0; border-radius: 999px; color: var(--white); background: var(--pink-deep); text-decoration: none; font-weight: 850; box-shadow: 0 9px 22px rgba(217, 77, 124, .2); transition: transform .18s ease, box-shadow .18s ease; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(217, 77, 124, .28); }
+    .button--soft { color: var(--pink-deep); background: var(--white); box-shadow: none; border: 1px solid var(--line); }
+    .button svg { width: 19px; height: 19px; }
+
+    .hero { padding: clamp(3.3rem, 7vw, 6.5rem) 0 4.8rem; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(2rem, 6vw, 5rem); }
+    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; padding: .45rem .8rem; border: 1px solid #f3d7e1; border-radius: 99px; background: var(--white); color: var(--pink-deep); font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .eyebrow-dot { width: 8px; height: 8px; background: #ec8c54; border-radius: 50%; box-shadow: 0 0 0 4px #fff0e6; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 650px; margin: 1.1rem 0 1rem; font-size: clamp(2.6rem, 5.4vw, 4.65rem); line-height: .99; letter-spacing: -.07em; }
+    h1 em { color: var(--pink-deep); font-style: normal; }
+    .hero-copy { max-width: 560px; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.12rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.7rem; }
+    .hero-footnote { margin: 1.1rem 0 0; color: var(--muted); font-size: .83rem; }
+
+    .hero-art { position: relative; min-height: 470px; display: grid; place-items: center; }
+    .hero-art::before { position: absolute; content: ""; width: 82%; aspect-ratio: 1; border-radius: 48% 52% 57% 43% / 48% 40% 60% 52%; background: linear-gradient(145deg, #ffe0e9, #efe8fb 52%, #dff2e7); transform: rotate(-8deg); }
+    .hero-photo { position: relative; z-index: 1; width: min(76%, 365px); overflow: hidden; border: 10px solid var(--white); border-radius: 34px; background: var(--rose); box-shadow: var(--shadow); transform: rotate(4deg); }
+    .hero-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .mini-photo { position: absolute; z-index: 2; right: 0; bottom: 24px; width: 35%; max-width: 170px; padding: 7px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: var(--white); box-shadow: var(--shadow); transform: rotate(-7deg); }
+    .mini-photo img { width: 100%; aspect-ratio: .8; object-fit: cover; object-position: center 54%; border-radius: 17px; }
+    .floating-tag { position: absolute; z-index: 3; top: 48px; left: 0; padding: .8rem 1rem; border-radius: 18px; background: var(--white); box-shadow: var(--shadow); font-weight: 900; line-height: 1.2; transform: rotate(-5deg); }
+    .floating-tag span { display: block; color: var(--pink-deep); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+    .sparkle { position: absolute; color: #e8a43c; font-size: 2rem; font-weight: 900; }
+    .sparkle-one { top: 24px; right: 18%; }
+    .sparkle-two { bottom: 50px; left: 8%; color: var(--pink-deep); font-size: 1.3rem; }
+
+    .section { padding: 4.5rem 0; }
+    .section-heading { max-width: 660px; margin: 0 auto 2.3rem; text-align: center; }
+    .section-kicker { margin-bottom: .5rem; color: var(--pink-deep); font-size: .78rem; font-weight: 950; letter-spacing: .13em; text-transform: uppercase; }
+    h2 { margin-bottom: .7rem; font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1.08; letter-spacing: -.055em; }
+    .section-heading p { margin-bottom: 0; color: var(--muted); }
+    .products { background: linear-gradient(180deg, rgba(255,240,244,.7), rgba(255,250,244,.45)); }
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; max-width: 850px; margin: 0 auto; }
+    .product-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--round); background: var(--white); box-shadow: 0 12px 36px rgba(124, 64, 89, .07); }
+    .product-photo { min-height: 250px; display: grid; place-items: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #fff0f4, #f3edfc); }
+    .product-card:nth-child(2) .product-photo { background: linear-gradient(135deg, #e6f5ec, #fff2df); }
+    .photo-placeholder { width: min(76%, 240px); min-height: 165px; display: grid; place-items: center; align-content: center; gap: .7rem; border: 2px dashed rgba(217, 77, 124, .35); border-radius: 25px; color: var(--pink-deep); background: rgba(255,255,255,.64); text-align: center; }
+    .product-card:nth-child(2) .photo-placeholder { border-color: rgba(105, 157, 123, .45); color: #638c70; }
+    .photo-placeholder svg { width: 38px; height: 38px; }
+    .photo-placeholder strong { display: block; font-size: .95rem; }
+    .photo-placeholder small { display: block; color: var(--muted); font-size: .78rem; }
+    .product-info { padding: 1.45rem 1.5rem 1.5rem; }
+    .product-label { margin-bottom: .3rem; color: var(--muted); font-size: .76rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+    .product-info h3 { margin-bottom: .3rem; font-size: 1.3rem; }
+    .price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin: .8rem 0 1.1rem; }
+    .price { color: var(--pink-deep); font-size: 1.8rem; font-weight: 950; letter-spacing: -.04em; }
+    .stock { color: var(--muted); font-size: .82rem; }
+    .product-info .button { width: 100%; }
+
+    .info-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 1.3rem; align-items: stretch; }
+    .payment-card, .safety-card { padding: clamp(1.5rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--round); background: var(--white); }
+    .payment-card { display: flex; flex-direction: column; justify-content: center; background: linear-gradient(145deg, #f5edff, #fff0f4); }
+    .card-mark { width: 48px; height: 48px; display: grid; place-items: center; margin-bottom: 1rem; border-radius: 16px; color: #765394; background: rgba(255,255,255,.75); }
+    .card-mark svg { width: 25px; height: 25px; }
+    .payment-card h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+    .payment-card p { margin-bottom: 0; color: var(--muted); }
+    .safety-card { background: #fffdfb; }
+    .safety-card h2 { font-size: 1.75rem; }
+    .notice-list { display: grid; gap: .75rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
+    .notice-list li { display: flex; gap: .8rem; align-items: flex-start; padding: .85rem; border-radius: 17px; background: #fff5f0; color: #5f4a4b; font-size: .93rem; }
+    .notice-icon { flex: 0 0 25px; width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; color: #9a6c23; background: #fff0c9; font-size: .82rem; font-weight: 950; }
+
+    .contact { padding: 1rem 0 5rem; }
+    .contact-panel { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem; padding: clamp(1.6rem, 5vw, 3rem); overflow: hidden; border-radius: 34px; background: var(--mint); }
+    .contact-panel::after { position: absolute; right: 190px; bottom: -65px; width: 180px; height: 180px; border: 25px solid rgba(255,255,255,.35); border-radius: 50%; content: ""; }
+    .contact-panel h2 { margin-bottom: .45rem; font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    .contact-panel p { margin-bottom: .5rem; color: #567060; }
+    .contact-number { display: inline-block; font-weight: 900; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .contact-panel .button { position: relative; z-index: 1; white-space: nowrap; }
+
+    .site-footer { padding: 1.5rem 0 2.3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem 2rem; align-items: center; }
+    .footer-inner p { margin: 0; }
+    .ip-credit { flex-basis: 100%; font-size: .74rem; }
+    .ip-credit a { text-underline-offset: 2px; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 30px, 560px); }
+      .nav { min-height: 68px; }
+      .nav-links { gap: .9rem; }
+      .nav-links > a:not(.button) { display: none; }
+      .nav-links .button { min-height: 42px; padding: .58rem .82rem; font-size: .84rem; }
+      .hero { padding-top: 3rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .hero-art { min-height: min(105vw, 470px); }
+      .hero-photo { width: min(72%, 330px); }
+      .floating-tag { top: 35px; left: 2%; }
+      .product-grid { gap: .9rem; }
+      .product-photo { min-height: 210px; }
+      .product-info { padding: 1.15rem; }
+      .price-row { display: block; }
+      .stock { display: block; margin-top: .1rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .contact-panel .button { justify-self: start; }
+      .contact-panel::after { right: -45px; bottom: -100px; }
+    }
+    @media (max-width: 440px) {
+      .top-note { font-size: .66rem; letter-spacing: .08em; }
+      .brand { font-size: 1rem; }
+      .brand-mark { width: 38px; height: 38px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .button { width: 100%; }
+      .product-grid { grid-template-columns: 1fr; max-width: 380px; }
+      .product-photo { min-height: 230px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="top-note">Gomitas enchiladas · dulces, frutales y con un toque picante</div>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Kitty Gomitas, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M5 12c0-3 3-5 6-3l9 7-1 8-11 2c-4 1-6-3-3-6l6-4-4-4Z" fill="#f7bdd0" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M35 12c0-3-3-5-6-3l-9 7 1 8 11 2c4 1 6-3 3-6l-6-4 4-4Z" fill="#f7bdd0" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="20" cy="20" r="5" fill="#fff" stroke="currentColor" stroke-width="2.4"/></svg>
+        </span>
+        <span>Kitty Gomitas</span>
+      </a>
+      <div class="nav-links">
+        <a href="#productos">Gomitas</a>
+        <a href="#informacion">Información</a>
+        <a class="button" href="https://wa.me/573027749156" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="hero-grid wrap">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Un antojito diferente</span>
+          <h1>Dulces por fuera.<br><em>Picantitas por dentro.</em></h1>
+          <p class="hero-copy">Descubre las gomitas enchiladas de Kitty Gomitas: un antojo lleno de color, sabor y ese toque picante que alegra el día.</p>
+          <div class="hero-actions">
+            <a class="button" href="#productos">Ver opciones</a>
+            <a class="button button--soft" href="https://wa.me/573027749156?text=Hola%20Kitty%20Gomitas%2C%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer">Escríbenos</a>
+          </div>
+          <p class="hero-footnote">Elige tu presentación y haz tu pedido directamente por WhatsApp.</p>
+        </div>
+        <div class="hero-art" aria-label="Imágenes decorativas oficiales de Hello Kitty">
+          <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
+          <span class="sparkle sparkle-two" aria-hidden="true">✧</span>
+          <div class="floating-tag"><span>Un toque</span>de dulzura</div>
+          <figure class="hero-photo">
+            <img src="assets/hello-kitty-sanrio.png" alt="Ilustración oficial de Hello Kitty sobre fondo rosado" width="1024" height="1024" fetchpriority="high">
+          </figure>
+          <figure class="mini-photo">
+            <img src="assets/hello-kitty-sanrio-wallpaper.png" alt="Hello Kitty en una ilustración otoñal de Sanrio" width="1500" height="2000" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products" id="productos" aria-labelledby="products-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="section-kicker">Elige tu antojo</p>
+          <h2 id="products-title">Nuestras gomitas</h2>
+          <p>Estamos preparando las fotos de cada presentación. Muy pronto podrás verlas aquí.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-photo" aria-label="Espacio reservado para la foto de la opción de 5.000 pesos">
+              <div class="photo-placeholder">
+                <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="5" y="9" width="30" height="23" rx="5" stroke="currentColor" stroke-width="2.2"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="2.2"/><path d="M12 9l2-3h8l2 3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <span><strong>Tu foto va aquí</strong><small>Opción de $5.000</small></span>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-label">Opción 01</p>
+              <h3>Gomitas enchiladas</h3>
+              <div class="price-row"><span class="price">$5.000</span><span class="stock">8 unidades disponibles</span></div>
+              <a class="button" href="https://wa.me/573027749156?text=Hola%20Kitty%20Gomitas%2C%20quiero%20la%20opci%C3%B3n%20de%20gomitas%20de%20%245.000." target="_blank" rel="noopener noreferrer">Pedir esta opción</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-photo" aria-label="Espacio reservado para la foto de la opción de 3.500 pesos">
+              <div class="photo-placeholder">
+                <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="5" y="9" width="30" height="23" rx="5" stroke="currentColor" stroke-width="2.2"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="2.2"/><path d="M12 9l2-3h8l2 3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <span><strong>Tu foto va aquí</strong><small>Opción de $3.500</small></span>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-label">Opción 02</p>
+              <h3>Gomitas enchiladas</h3>
+              <div class="price-row"><span class="price">$3.500</span><span class="stock">5 unidades disponibles</span></div>
+              <a class="button" href="https://wa.me/573027749156?text=Hola%20Kitty%20Gomitas%2C%20quiero%20la%20opci%C3%B3n%20de%20gomitas%20de%20%243.500." target="_blank" rel="noopener noreferrer">Pedir esta opción</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="informacion" aria-labelledby="info-title">
+      <div class="wrap info-grid">
+        <article class="payment-card">
+          <span class="card-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="18" rx="4" stroke="currentColor" stroke-width="2.2"/><path d="M3 13h26M8 20h6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </span>
+          <p class="section-kicker">Compra a tu manera</p>
+          <h2>Aceptamos todos los métodos de pago</h2>
+          <p>Escríbenos para coordinar tu pedido y resolver cualquier duda.</p>
+        </article>
+        <article class="safety-card">
+          <p class="section-kicker">Antes de disfrutar</p>
+          <h2 id="info-title">Información importante</h2>
+          <ul class="notice-list">
+            <li><span class="notice-icon" aria-hidden="true">i</span><span>Producto destinado a niños mayores de 3 años, con supervisión adulta.</span></li>
+            <li><span class="notice-icon" aria-hidden="true">!</span><span>Contiene productos picantes; consumir bajo su propia responsabilidad.</span></li>
+            <li><span class="notice-icon" aria-hidden="true">!</span><span>No apto para personas con enfermedades como hipertensión o gastritis.</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div>
+            <p class="section-kicker">Estamos para ayudarte</p>
+            <h2 id="contact-title">¿Se te antojaron?</h2>
+            <p>Escríbenos y coordinamos tu pedido por WhatsApp.</p>
+            <a class="contact-number" href="https://wa.me/573027749156" target="_blank" rel="noopener noreferrer">+57 302 774 9156</a>
+          </div>
+          <a class="button" href="https://wa.me/573027749156?text=Hola%20Kitty%20Gomitas%2C%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.7a8.1 8.1 0 0 1-12 7.1L4 20l1.2-3.8A8.1 8.1 0 1 1 20 11.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c.2-.4.4-.4.7-.4h.4c.2 0 .3.1.4.4l.6 1.4c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .5.4.7 1.1 1.4 1.8 1.8.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.3.6c.3.1.4.3.3.6-.1.6-.4 1-.8 1.2-.5.3-1.1.4-1.7.2-1.1-.3-2.2-.9-3.2-1.9s-1.7-2.2-2-3.3c-.2-.5 0-1 .2-1.3.2-.3.5-.5.8-.6Z" fill="currentColor"/></svg>
+            Abrir WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p><strong>Kitty Gomitas</strong> · Un antojo dulce y picante.</p>
+      <p>Contacto: <a href="https://wa.me/573027749156" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+      <p class="ip-credit">Hello Kitty™ © Sanrio Co., Ltd. Imágenes oficiales utilizadas con autorización/licencia del titular.</p>
+    </div>
+  </footer>
+</body>
+</html>
