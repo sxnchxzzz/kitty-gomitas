@@ -75,12 +75,12 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.7rem; }
     .hero-footnote { margin: 1.1rem 0 0; color: var(--muted); font-size: .83rem; }
 
-    .hero-art { position: relative; min-height: 470px; display: grid; place-items: center; }
+    .hero-art { position: relative; height: clamp(360px, 38vw, 470px); min-height: 0; display: grid; place-items: center; }
     .hero-art::before { position: absolute; content: ""; width: 82%; aspect-ratio: 1; border-radius: 48% 52% 57% 43% / 48% 40% 60% 52%; background: linear-gradient(145deg, #ffe0e9, #efe8fb 52%, #dff2e7); transform: rotate(-8deg); }
-    .hero-photo { position: relative; z-index: 1; width: min(76%, 365px); overflow: hidden; border: 10px solid var(--white); border-radius: 34px; background: var(--rose); box-shadow: var(--shadow); transform: rotate(4deg); }
-    .hero-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-    .mini-photo { position: absolute; z-index: 2; right: 0; bottom: 24px; width: 35%; max-width: 170px; padding: 7px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: var(--white); box-shadow: var(--shadow); transform: rotate(-7deg); }
-    .mini-photo img { width: 100%; aspect-ratio: .8; object-fit: cover; object-position: center 54%; border-radius: 17px; }
+    .hero-photo { position: relative; z-index: 1; width: min(76%, 365px); aspect-ratio: 1; margin: 0; overflow: hidden; border: 10px solid var(--white); border-radius: 34px; background: var(--rose); box-shadow: var(--shadow); transform: rotate(4deg); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: contain; }
+    .mini-photo { position: absolute; z-index: 2; right: 0; bottom: 24px; width: 35%; max-width: 170px; aspect-ratio: .8; margin: 0; padding: 7px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: var(--white); box-shadow: var(--shadow); transform: rotate(-4deg); }
+    .mini-photo img { width: 100%; height: 100%; object-fit: contain; object-position: center; border-radius: 17px; background: #fff8f5; }
     .floating-tag { position: absolute; z-index: 3; top: 48px; left: 0; padding: .8rem 1rem; border-radius: 18px; background: var(--white); box-shadow: var(--shadow); font-weight: 900; line-height: 1.2; transform: rotate(-5deg); }
     .floating-tag span { display: block; color: var(--pink-deep); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
     .sparkle { position: absolute; color: #e8a43c; font-size: 2rem; font-weight: 900; }
@@ -145,8 +145,10 @@
       .nav-links .button { min-height: 42px; padding: .58rem .82rem; font-size: .84rem; }
       .hero { padding-top: 3rem; }
       .hero-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .hero-art { min-height: min(105vw, 470px); }
-      .hero-photo { width: min(72%, 330px); }
+      .hero-art { width: 100%; height: clamp(300px, 88vw, 350px); min-height: 0; }
+      .hero-art::before { width: 78%; }
+      .hero-photo { width: min(64%, 250px); }
+      .mini-photo { right: 1%; bottom: 16px; width: clamp(92px, 24vw, 112px); }
       .floating-tag { top: 35px; left: 2%; }
       .product-grid { gap: .9rem; }
       .product-photo { min-height: 210px; }
