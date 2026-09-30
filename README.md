@@ -6,15 +6,15 @@ Sitio estático en español para presentar las gomitas enchiladas, precios, cont
 
 Abre `index.html` directamente en un navegador. No requiere instalar dependencias ni ejecutar un servidor.
 
-## Fotos de los productos
+## Productos
 
-La sección **Nuestras gomitas** contiene dos marcos listos para sustituir por las fotos que enviará el negocio:
+Las dos fotos se extrajeron de `Libro(1).xlsx` y se muestran en el mismo orden que sus registros:
 
-- Opción de **$5.000**
-- Opción de **$3.500**
+- `assets/producto-5000.jpg`: opción de **$5.000**, cantidad **8**.
+- `assets/producto-3500.jpg`: opción de **$3.500**, cantidad **5**.
 
-Los valores de inventario que aparecen junto a cada opción (8 y 5 unidades) se tomaron de `Libro(1).xlsx` e interpretaron como unidades disponibles.
+El Excel trae precio y cantidad, sin otros nombres o tamaños de producto. Las fotos se redujeron/comprimieron conservando la imagen completa para acelerar la carga.
 
 ## Imágenes de Hello Kitty
 
-Las imágenes decorativas de `assets/` son ilustraciones oficiales encontradas en Sanrio.com. La persona titular del sitio indicó que cuenta con autorización/licencia para utilizarlas en esta página comercial.
+Las imágenes decorativas oficiales de `assets/` se obtuvieron de Sanrio.com. La persona titular del sitio indicó que cuenta con autorización/licencia para utilizarlas en esta página comercial.
